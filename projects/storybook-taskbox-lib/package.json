@@ -1,6 +1,11 @@
 {
-  "name": "@sumbulovich/storybook-taskbox-lib",
-  "version": "0.0.1",
+  "name": "@sumbulnpm/storybook-taskbox-lib",
+  "version": "0.0.4",
+  "exports": {
+    "./styles": {
+      "sass": "./styles/styles.scss"
+    }
+  },
   "peerDependencies": {
     "@angular/common": "^18.2.0",
     "@angular/core": "^18.2.0"

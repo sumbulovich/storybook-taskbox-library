@@ -3,7 +3,7 @@ import { Task } from '../../models/task.model';
 import { NgIf } from '@angular/common';
 
 @Component({
-  selector: 'app-task',
+  selector: 'sumbul-task',
   imports: [NgIf],
   templateUrl: './task.component.html',
   styleUrl: './task.component.scss',

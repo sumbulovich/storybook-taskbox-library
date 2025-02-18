@@ -4,7 +4,7 @@ import { TaskListComponent } from '../task-list/task-list.component';
 import { TaskService } from '../../services/task.service';
 
 @Component({
-  selector: 'app-inbox-screen',
+  selector: 'sumbul-inbox-screen',
   imports: [NgIf, TaskListComponent],
   templateUrl: './inbox-screen.component.html',
   styleUrl: './inbox-screen.component.scss',
@@ -19,14 +19,14 @@ export class InboxScreenComponent {
   /**
    * Component method to trigger the archiveTask event
    */
-  archiveTask(id: string) {
+  archiveTask(id: any) {
     this.taskService.archiveTask(id);
   }
 
   /**
    * Component method to trigger the pinTask event
    */
-  pinTask(id: string) {
+  pinTask(id: any) {
     this.taskService.pinTask(id);
   }
 }

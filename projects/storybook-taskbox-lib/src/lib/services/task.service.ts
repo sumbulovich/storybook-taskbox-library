@@ -13,7 +13,7 @@ export class TaskService {
   error: boolean = false;
   isLoading: boolean = true;
 
-  pinTask(id: string) {
+  pinTask(id: any) {
     this.tasks.update((tasks: Task[]) => {
       const task = tasks.find((t) => t.id === id);
       if (task) {
@@ -23,7 +23,7 @@ export class TaskService {
     });
   }
 
-  archiveTask(id: string) {
+  archiveTask(id: any) {
     this.tasks.update((tasks: Task[]) => {
       const task = tasks.find((t) => t.id === id);
       if (task) {

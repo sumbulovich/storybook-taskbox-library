@@ -8,11 +8,11 @@
 
 <div *ngIf="!error" class="page lists-show">
   <nav>
-    <h1 class="title-page" (click)="addTask()">Taskbox</h1>
+    <h1 class="title-page">Taskbox</h1>
   </nav>
-  <app-task-list
+  <sumbul-task-list
     [tasks]="tasks()"
     (onArchiveTask)="archiveTask($event)"
     (onPinTask)="pinTask($event)"
-  ></app-task-list>
+  ></sumbul-task-list>
 </div>

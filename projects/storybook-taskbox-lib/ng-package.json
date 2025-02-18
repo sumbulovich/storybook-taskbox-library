@@ -1,7 +1,13 @@
 {
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
-  "dest": "../../dist/sumbulovich/storybook-taskbox-lib",
+  "dest": "../../dist/storybook-taskbox-lib",
   "lib": {
-    "entryFile": "src/public-api.ts"
-  }
+    "entryFile": "src/public-api.ts",
+    "styleIncludePaths": ["./src/lib/assets/styles"]
+  },
+  "assets": [
+    { "input": "./src/lib/assets/fonts", "glob": "**/*", "output": "fonts" },
+    { "input": "./src/lib/assets/icons", "glob": "**/*", "output": "icons" },
+    { "input": "./src/lib/assets/styles", "glob": "**/*.scss", "output": "styles" }
+  ]
 }

@@ -4,7 +4,7 @@ import { TaskComponent } from '../task/task.component';
 import { NgForOf, NgIf } from '@angular/common';
 
 @Component({
-  selector: 'app-task-list',
+  selector: 'sumbul-task-list',
   imports: [TaskComponent, NgIf, NgForOf],
   templateUrl: './task-list.component.html',
   styleUrl: './task-list.component.scss',

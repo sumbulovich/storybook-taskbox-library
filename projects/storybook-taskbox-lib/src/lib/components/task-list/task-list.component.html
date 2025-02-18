@@ -1,11 +1,11 @@
 <div class="list-items">
-       <app-task
+       <sumbul-task
          *ngFor="let task of tasksInOrder"
          [task]="task"
          (onArchiveTask)="onArchiveTask.emit($event)"
          (onPinTask)="onPinTask.emit($event)"
        >
-       </app-task>
+       </sumbul-task>
        <div
          *ngIf="tasksInOrder.length === 0 && !loading"
          class="wrapper-message"

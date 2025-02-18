@@ -12,6 +12,7 @@ const config: StorybookConfig = {
     name: "@storybook/angular",
     options: {},
   },
-  staticDirs: ["../src/lib/assets"], // Add if needed
+  // Sets a list of directories of static files to be loaded by Storybook server
+  staticDirs: ["../src/lib/assets"],
 };
 export default config;
