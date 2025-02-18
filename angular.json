@@ -64,7 +64,10 @@
               "-d",
               "projects/storybook-taskbox-lib"
             ],
-            "outputDir": "storybook-static"
+            "outputDir": "storybook-static",
+            "styles": [
+              "./projects/storybook-taskbox-lib/src/lib/assets/styles/styles.scss"
+            ]
           }
         }
       }
