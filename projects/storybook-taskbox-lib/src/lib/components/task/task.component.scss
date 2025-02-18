@@ -1,0 +1,83 @@
+.list-item {
+  font-size: 14px;
+  line-height: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  height: 3rem;
+  width: 100%;
+  background: white;
+  transition: all ease-out 150ms;
+
+  .title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex: 1;
+  }
+
+  input[type="text"] {
+    background: transparent;
+    width: 100%;
+
+    &:focus {
+      cursor: text;
+    }
+  }
+
+  &.TASK_PINNED .icon-star {
+    color: #2cc5d2;
+  }
+
+  &.TASK_ARCHIVED input[type="text"] {
+    color: #4a5568;
+    text-decoration: line-through;
+  }
+
+  &:hover {
+    background-image: linear-gradient(to bottom, #e5f9f7 0%, #f0fffd 100%);
+
+    .checkbox {
+      cursor: pointer;
+    }
+  }
+
+  + .list-item {
+    border-top: 1px solid #f0f9fb;
+  }
+
+  &.checked {
+    input[type="text"] {
+      color: #ccc;
+      text-decoration: line-through;
+    }
+
+    .delete-item {
+      display: inline-block;
+    }
+  }
+}
+
+.pin-button {
+  width: 3rem;
+  height: 3rem;
+  background: transparent;
+  border: none;
+  text-align: center;
+  transition: all 200ms ease-in;
+  color: #eee;
+  font-size: 16px;
+  line-height: 3rem;
+  outline: none;
+
+  &:hover {
+    color: #2cc5d2;
+  }
+
+  &:focus {
+    outline-color: transparent;
+  }
+
+  &:active {
+    color: #555;
+  }
+}
