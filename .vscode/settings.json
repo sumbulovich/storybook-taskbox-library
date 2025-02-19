@@ -1,7 +1,18 @@
 {
   "angular-schematics.schematicsDefaultOptions": {
     "angular-*": {
-      "selectorPrefix": "sumbul"
+      "selectorPrefix": "sumbul",
+      "style": "scss",
+      "externalTemplate": true,
+      "skipTests": false,
+    },
+    "angular-component": {
+      "skipChangeDetectionOnPush": true,
+      "skipDisplayBlock": true
+    },
+    "angular-page": {
+      "skipChangeDetectionOnPush": true,
+      "skipDisplayBlock": true
     }
   }
 }
