@@ -13,7 +13,7 @@ import { TaskService } from '../../services/task.service';
 })
 export class InboxScreenComponent {
   private taskService: TaskService = inject(TaskService)
-  tasks = this.taskService.tasks;
+  tasks = this.taskService.tasks();
   error: boolean = this.taskService.error;
 
   /**
