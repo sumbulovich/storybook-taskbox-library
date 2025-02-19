@@ -27,12 +27,13 @@
       placeholder="Input title"
     />
   </label>
-  <button
-    *ngIf="task?.state !== 'TASK_ARCHIVED'"
-    class="pin-button"
-    [attr.aria-label]="'pinTask-' + task?.id"
-    (click)="onPin(task?.id)"
-  >
-    <span class="icon-star"></span>
-  </button>
+  @if (task?.state !== 'TASK_ARCHIVED') {
+    <button
+      class="pin-button"
+      [attr.aria-label]="'pinTask-' + task?.id"
+      (click)="onPin(task?.id)"
+    >
+      <span class="icon-star"></span>
+    </button>
+  }
 </div>

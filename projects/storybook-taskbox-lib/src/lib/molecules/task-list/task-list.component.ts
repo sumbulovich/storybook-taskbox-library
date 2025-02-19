@@ -1,11 +1,11 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Task } from '../../models/task.model';
-import { TaskComponent } from '../task/task.component';
+import { TaskComponent } from '../../atoms/task/task.component';
 import { NgForOf, NgIf } from '@angular/common';
 
 @Component({
   selector: 'sumbul-task-list',
-  imports: [TaskComponent, NgIf, NgForOf],
+  imports: [TaskComponent],
   templateUrl: './task-list.component.html',
   styleUrl: './task-list.component.scss',
   standalone: true

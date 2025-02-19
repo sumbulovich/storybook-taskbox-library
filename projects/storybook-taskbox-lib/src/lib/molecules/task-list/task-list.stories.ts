@@ -2,18 +2,14 @@ import { CommonModule } from '@angular/common';
 import type { Meta, StoryObj } from '@storybook/angular';
 import { componentWrapperDecorator, moduleMetadata } from '@storybook/angular';
 import { TaskListComponent } from './task-list.component';
-import { TaskComponent } from '../task/task.component';
-import * as TaskStories from '../task/task.stories';
+import { TaskComponent } from '../../atoms/task/task.component';
+import * as TaskStories from '../../atoms/task/task.stories';
 
 const meta: Meta<TaskListComponent> = {
   component: TaskListComponent,
-  title: 'TaskList',
+  title: 'Molecules/TaskList',
   tags: ['autodocs'],
   decorators: [
-    moduleMetadata({
-      //👇 Imports both components to allow component composition with Storybook
-      imports: [, ],
-    }),
     //👇 Wraps our stories with a decorator
     componentWrapperDecorator(
       (story) => `<div style="margin: 3em">${story}</div>`

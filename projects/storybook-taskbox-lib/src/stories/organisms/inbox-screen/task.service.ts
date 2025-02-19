@@ -1,17 +1,10 @@
 import { Injectable, signal, WritableSignal } from '@angular/core';
-import { Task } from '../models/task.model';
-import { take, timer } from 'rxjs';
+import { Task } from '../../../lib/models/task.model';
 
 @Injectable()
 export class TaskService {
-  tasks: WritableSignal<Task[]> = signal([
-    { id: '1', title: 'Something', state: 'TASK_INBOX' },
-    { id: '2', title: 'Something more', state: 'TASK_INBOX' },
-    { id: '3', title: 'Something else', state: 'TASK_INBOX' },
-    { id: '4', title: 'Something again', state: 'TASK_INBOX' },
-  ]);
+  tasks: WritableSignal<Task[]> = signal([]);
   error: boolean = false;
-  isLoading: boolean = true;
 
   pinTask(id: any) {
     this.tasks.update((tasks: Task[]) => {
@@ -31,9 +24,5 @@ export class TaskService {
       }
       return [...tasks];
     });
-  }
-
-  setAppError() {
-    this.error = true;
   }
 }

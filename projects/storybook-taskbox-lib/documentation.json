@@ -4,7 +4,35 @@
     "injectables": [],
     "guards": [],
     "interceptors": [],
-    "classes": [],
+    "classes": [
+        {
+            "name": "MockTaskService",
+            "id": "class-MockTaskService-be49b7f3e293ec76d25686cd5276fcec457c1bcd47be398a7fd7d4b8358427b39a1fb27ce11a52cbaf72b65f69bc0eb03b3262b2e6e84f2511cdb2b9e12f0059",
+            "file": "projects/storybook-taskbox-lib/src/lib/components/inbox-screen/inbox-screen.stories.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "class",
+            "sourceCode": "import {\n  applicationConfig,\n  moduleMetadata,\n  type Meta,\n  type StoryObj,\n} from '@storybook/angular';\nimport { InboxScreenComponent } from './inbox-screen.component';\nimport { fireEvent, within } from '@storybook/test';\nimport { signal } from '@angular/core';\nimport { TaskService } from 'storybook-taskbox-lib';\nimport { Task } from '../../models/task.model';\n\n\nclass MockTaskService extends TaskService {\n  constructor() {\n    super();\n    this.tasks = signal<Task[]>([\n      { id: '1', title: 'Injected Task 1', state: 'TASK_INBOX' },\n      { id: '2', title: 'Injected Task 2', state: 'TASK_PINNED' },\n    ]);\n  }\n}\n\n\nconst meta: Meta<InboxScreenComponent> = {\n  component: InboxScreenComponent,\n  title: 'Organisms/PureInboxScreen',\n  tags: ['autodocs'],\n  decorators: [\n    moduleMetadata({\n      providers: [\n        { provide: TaskService, useClass: MockTaskService },\n      ],\n    }),\n  ]\n};\n\nexport default meta;\ntype Story = StoryObj<InboxScreenComponent>;\n\nexport const Default: Story = {};\n\nexport const Error: Story = {\n  args: {\n    error: true,\n  },\n};\n\nexport const WithInteractions: Story = {\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    // Simulates pinning the first task\n    await fireEvent.click(canvas.getByLabelText('pinTask-1'));\n    // Simulates pinning the third task\n    await fireEvent.click(canvas.getByLabelText('pinTask-3'));\n  },\n};\n",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 14
+            },
+            "inputsClass": [],
+            "outputsClass": [],
+            "properties": [],
+            "methods": [],
+            "indexSignatures": [],
+            "extends": [
+                "TaskService"
+            ],
+            "hostBindings": [],
+            "hostListeners": []
+        }
+    ],
     "directives": [],
     "components": [],
     "modules": [],
@@ -34,21 +62,21 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/storybook-taskbox-lib/src/lib/components/inbox-screen/inbox-screen.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{}"
-            },
-            {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/storybook-taskbox-lib/src/lib/components/task/task.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  args: {\n    task: {\n      id: '1',\n      title: 'Test Task',\n      state: 'TASK_INBOX',\n    },\n  },\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/storybook-taskbox-lib/src/lib/components/inbox-screen/inbox-screen.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{}"
             },
             {
                 "name": "Default",
@@ -174,16 +202,6 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/storybook-taskbox-lib/src/lib/components/inbox-screen/inbox-screen.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<InboxScreenComponent>",
-                "defaultValue": "{\n  component: InboxScreenComponent,\n  title: 'PureInboxScreen',\n  tags: ['autodocs'],\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/storybook-taskbox-lib/src/lib/components/task/task.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -194,11 +212,21 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/storybook-taskbox-lib/src/lib/components/inbox-screen/inbox-screen.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<InboxScreenComponent>",
+                "defaultValue": "{\n  component: InboxScreenComponent,\n  title: 'Organisms/PureInboxScreen',\n  tags: ['autodocs'],\n  decorators: [\n    moduleMetadata({\n      providers: [\n        { provide: TaskService, useClass: MockTaskService },\n      ],\n    }),\n  ]\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/storybook-taskbox-lib/src/lib/components/task-list/task-list.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<TaskListComponent>",
-                "defaultValue": "{\n  component: TaskListComponent,\n  title: 'TaskList',\n  tags: ['autodocs'],\n  decorators: [\n    moduleMetadata({\n      //👇 Imports both components to allow component composition with Storybook\n      imports: [, ],\n    }),\n    //👇 Wraps our stories with a decorator\n    componentWrapperDecorator(\n      (story) => `<div style=\"margin: 3em\">${story}</div>`\n    ),\n  ],\n  args: {\n    ...TaskStories.ActionsData,\n  },\n}"
+                "defaultValue": "{\n  component: TaskListComponent,\n  title: 'Molecules/TaskList',\n  tags: ['autodocs'],\n  decorators: [\n    //👇 Wraps our stories with a decorator\n    componentWrapperDecorator(\n      (story) => `<div style=\"margin: 3em\">${story}</div>`\n    ),\n  ],\n  args: {\n    ...TaskStories.ActionsData,\n  },\n}"
             },
             {
                 "name": "Pinned",
@@ -310,8 +338,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<InboxScreenComponent>",
-                "file": "projects/storybook-taskbox-lib/src/lib/components/inbox-screen/inbox-screen.stories.ts",
+                "rawtype": "StoryObj<TaskComponent>",
+                "file": "projects/storybook-taskbox-lib/src/lib/components/task/task.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -321,8 +349,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<TaskComponent>",
-                "file": "projects/storybook-taskbox-lib/src/lib/components/task/task.stories.ts",
+                "rawtype": "StoryObj<InboxScreenComponent>",
+                "file": "projects/storybook-taskbox-lib/src/lib/components/inbox-screen/inbox-screen.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -423,7 +451,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<InboxScreenComponent>",
-                    "defaultValue": "{\n  component: InboxScreenComponent,\n  title: 'PureInboxScreen',\n  tags: ['autodocs'],\n}"
+                    "defaultValue": "{\n  component: InboxScreenComponent,\n  title: 'Organisms/PureInboxScreen',\n  tags: ['autodocs'],\n  decorators: [\n    moduleMetadata({\n      providers: [\n        { provide: TaskService, useClass: MockTaskService },\n      ],\n    }),\n  ]\n}"
                 },
                 {
                     "name": "WithInteractions",
@@ -475,7 +503,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<TaskListComponent>",
-                    "defaultValue": "{\n  component: TaskListComponent,\n  title: 'TaskList',\n  tags: ['autodocs'],\n  decorators: [\n    moduleMetadata({\n      //👇 Imports both components to allow component composition with Storybook\n      imports: [, ],\n    }),\n    //👇 Wraps our stories with a decorator\n    componentWrapperDecorator(\n      (story) => `<div style=\"margin: 3em\">${story}</div>`\n    ),\n  ],\n  args: {\n    ...TaskStories.ActionsData,\n  },\n}"
+                    "defaultValue": "{\n  component: TaskListComponent,\n  title: 'Molecules/TaskList',\n  tags: ['autodocs'],\n  decorators: [\n    //👇 Wraps our stories with a decorator\n    componentWrapperDecorator(\n      (story) => `<div style=\"margin: 3em\">${story}</div>`\n    ),\n  ],\n  args: {\n    ...TaskStories.ActionsData,\n  },\n}"
                 },
                 {
                     "name": "WithPinnedTasks",
@@ -659,19 +687,6 @@
                     "kind": 183
                 }
             ],
-            "projects/storybook-taskbox-lib/src/lib/components/inbox-screen/inbox-screen.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<InboxScreenComponent>",
-                    "file": "projects/storybook-taskbox-lib/src/lib/components/inbox-screen/inbox-screen.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 183
-                }
-            ],
             "projects/storybook-taskbox-lib/src/lib/components/task/task.stories.ts": [
                 {
                     "name": "Story",
@@ -679,6 +694,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<TaskComponent>",
                     "file": "projects/storybook-taskbox-lib/src/lib/components/task/task.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "projects/storybook-taskbox-lib/src/lib/components/inbox-screen/inbox-screen.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<InboxScreenComponent>",
+                    "file": "projects/storybook-taskbox-lib/src/lib/components/inbox-screen/inbox-screen.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -713,6 +741,15 @@
                 "name": "preview",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/storybook-taskbox-lib/src/lib/components/inbox-screen/inbox-screen.stories.ts",
+                "type": "class",
+                "linktype": "classe",
+                "name": "MockTaskService",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
                 "status": "low"
             },
             {

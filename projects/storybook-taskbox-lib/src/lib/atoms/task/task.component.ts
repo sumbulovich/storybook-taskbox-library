@@ -1,10 +1,9 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Task } from '../../models/task.model';
-import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'sumbul-task',
-  imports: [NgIf],
+  imports: [],
   templateUrl: './task.component.html',
   styleUrl: './task.component.scss',
   standalone: true
